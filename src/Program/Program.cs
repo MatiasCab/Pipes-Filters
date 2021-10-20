@@ -18,7 +18,7 @@ namespace CompAndDel
 
             PipeNull pipeNull = new PipeNull();
             PipeSerial pipe2 = new PipeSerial(negative,pipeNull);
-            PipeSerial pipe1 = new PipeSerial(grey,);
+            PipeSerial pipe1 = new PipeSerial(grey,pipeNull);
             PipeConditional conditional= new PipeConditional(pipe1,pipe2);
             
             conditional.ContainsFace(@".\beer.jpg");
