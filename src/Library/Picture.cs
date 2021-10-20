@@ -12,6 +12,10 @@ namespace CompAndDel
     /// </summary>
     public class Picture : IPicture
     {
+
+        private TwitterImage twitter;//variable donde instancio la clase TwitterImage que usa el metodo Publish
+
+        private PictureProvider provider;//variable donde instancio la clase Pictureprovider que usa el metdod save
         private Color[,] colorsMatrix;
 
         /// <summary>
@@ -23,6 +27,8 @@ namespace CompAndDel
         {
             this.colorsMatrix = new Color[width, height];
             this.colorsMatrix.Initialize();
+            this.twitter = new TwitterImage();
+            this.provider = new PictureProvider();
         }
 
         /// <summary>
@@ -114,14 +120,12 @@ namespace CompAndDel
         }
         public void Save(string path) //Forme un metodo save, en el cual la clase picture, le delega a la clase provider la responsabilidad de guadar una imagen.
         {
-            PictureProvider provider = new PictureProvider();
-            provider.SavePicture(this, path);
+            this.provider.SavePicture(this, path);
         }
 
         public void Publish(string message, string path)//Forme un metdod Publish, en el cual picture le delaga a la clase TwitterImage la responsabilidad de publicar una imagen en twitter.
         {
-            var twitter = new TwitterImage();
-            Console.WriteLine(twitter.PublishToTwitter(message,path));
+            Console.WriteLine(this.twitter.PublishToTwitter(message,path));
         }
     }
 }
