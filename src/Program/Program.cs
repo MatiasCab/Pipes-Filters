@@ -11,7 +11,7 @@ namespace CompAndDel
         {
 
             PictureProvider provider = new PictureProvider();
-            IPicture picture1 = provider.GetPicture(@".\beer.jpg");//".\" para decir que estoy parado en esta carpeta
+            IPicture picture1 = provider.GetPicture(@".\luke.jpg");//   Aca obtengo la imagen,".\" para decir que estoy parado en esta carpeta
 
             IFilter grey = new FilterGreyscale();
             IFilter negative = new FilterNegative();
@@ -19,11 +19,14 @@ namespace CompAndDel
             PipeNull pipeNull = new PipeNull();
             PipeSerial pipe2 = new PipeSerial(negative,pipeNull);
             PipeSerial pipe1 = new PipeSerial(grey,pipeNull);
-            PipeConditional conditional= new PipeConditional(pipe1,pipe2);
+
+            PipeConditional conditional = new PipeConditional(pipe1,pipe2);
             
-            conditional.ContainsFace(@".\beer.jpg");
+            conditional.ContainsFace(@".\luke.jpg");
 
             conditional.Send(picture1);
+
+
         }
     }
 }
