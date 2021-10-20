@@ -31,8 +31,8 @@ namespace CompAndDel.Filters
                     result.SetColor(x, y, colorGris);
                 }
             }
-            result.Save(@".\lukegrey.jpg");//se encarga de guardar la imagen
-            result.Publish("Paso intermedio",@".\lukegrey.jpg");//se encarga de publicar la imagen en twitter
+            result.Save(@".\lukegrey.jpg");//El metodo save en el filtro permite guardar la imagen modificada, cada vez que se le va a hacer un cambio con ese filtro, por lo que puedo guardar la imagen en cualquiera de las instancias del trayecto estipulado
+            result.Publish("Test condicional con cara ",@".\lukegrey.jpg");//se encarga de publicar la imagen en twitter, cada vez que a la iamgen se le pasa por esta modificacion
             return result;
         }
     }

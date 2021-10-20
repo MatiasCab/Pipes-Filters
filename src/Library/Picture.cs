@@ -112,13 +112,13 @@ namespace CompAndDel
             
             return pictureClone;
         }
-        public void Save(string path)
+        public void Save(string path) //Forme un metodo save, en el cual la clase picture, le delega a la clase provider la responsabilidad de guadar una imagen.
         {
             PictureProvider provider = new PictureProvider();
             provider.SavePicture(this, path);
         }
 
-        public void Publish(string message, string path)
+        public void Publish(string message, string path)//Forme un metdod Publish, en el cual picture le delaga a la clase TwitterImage la responsabilidad de publicar una imagen en twitter.
         {
             var twitter = new TwitterImage();
             Console.WriteLine(twitter.PublishToTwitter(message,path));
