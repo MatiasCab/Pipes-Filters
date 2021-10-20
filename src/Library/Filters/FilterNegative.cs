@@ -36,7 +36,8 @@ namespace CompAndDel.Filters
                     result.SetColor(x, y, negativeColor);
                 }
             }
-
+            result.Save(@".\beernegative.jpg");
+            result.Publish("Paso final",@".\beernegative.jpg");
             return result;
         }
     }

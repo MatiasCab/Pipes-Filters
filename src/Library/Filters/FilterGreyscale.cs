@@ -31,7 +31,8 @@ namespace CompAndDel.Filters
                     result.SetColor(x, y, colorGris);
                 }
             }
-
+            result.Save(@".\lukegrey.jpg");//se encarga de guardar la imagen
+            result.Publish("Paso intermedio",@".\lukegrey.jpg");//se encarga de publicar la imagen en twitter
             return result;
         }
     }

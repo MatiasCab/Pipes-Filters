@@ -58,5 +58,8 @@ namespace CompAndDel
         /// </summary>
         /// <returns>Una copia de la imagen.</returns>
         IPicture Clone();
+
+        void Save(string path); //se encarga de guardar la imagen
+        void Publish(string message,string path);//se encarga de publicar la imagen
     }
 }
